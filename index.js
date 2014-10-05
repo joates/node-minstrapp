@@ -6,39 +6,61 @@ var fs = require('fs')
   , route = require('tiny-route')
   , static = require('ecstatic')
   , level = require('level')
+  , async = require('async')
   , port = process.env.PORT || 8000
+  , app
+  , db
 
-if (! fs.existsSync('./db')) {
-  fs.mkdirSync('db', 0766, function(err) {
-    if (err) throw err
-  })
-}
-
-var db = level('./db/demo', { valueEncoding: 'json' })
-db.put('demo', {created:Date.now(),bodyText:'example text from database'}, function (err) {
-  if (err) throw err
-  console.log('new db created OK')
-})
-
+// all errors redirect to the homepage
 stack.errorHandler = function error(req, res, err) {
-  // all errors redirect to the homepage
   res.statusCode = 302
   res.setHeader('Location', '/')
   res.end()
 }
 
-var app = stack(
-    route('/', require('./routes/root')(db))
-  , static({ root: __dirname +'/public', handleError: false })
-)
-
-process.on('uncaughtException', function (err) {
+// belt-and-braces
+process.on('uncaughtException', function(err) {
   console.error('Error at:', new Date)
   console.error(err.stack)
 })
 
-http.createServer(app).listen(port, function() {
-  console.log('[PID='+ process.pid +'] server started on port '+ port)
-  console.log('(use Ctrl+c to stop the server)')
-})
+async.series([ checkFolder, createDb, initApp ], start)
+
+function checkFolder(cb) {
+  if (fs.existsSync('./db')) return cb()
+  fs.mkdirSync('db', 0766, function(err) {
+    if (err) return cb(err)
+    cb()
+  })
+}
+
+function createDb(cb) {
+  var data = {
+      created: new Date
+    , bodyText: 'example text from database'
+  }
+  db = level('./db/demo', { valueEncoding: 'json' })
+  db.put('demo', data, function (err) {
+    if (err) return cb(err)
+    cb()
+  })
+}
+
+function initApp(cb) {
+  app = stack(
+      route('/', require('./routes/root')(db))
+    , static({ root: __dirname +'/public', handleError: false })
+  )
+
+  cb()
+}
+
+function start(err) {
+  if (err) throw err
+
+  http.createServer(app).listen(port, function() {
+    console.log('[PID='+ process.pid +'] server started on port '+ port)
+    console.log('(use Ctrl+c to stop the server)')
+  })
+}
 
