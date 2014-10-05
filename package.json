@@ -1,0 +1,30 @@
+{
+  "name": "minstrapp",
+  "version": "1.0.0",
+  "description": "minimal application bootstrapper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joates/node-minstrapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joates/node-minstrapp/issues"
+  },
+  "homepage": "https://github.com/joates/node-minstrapp",
+  "author": "@joat_es (http://joat.es)",
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ecstatic": "^0.5.5",
+    "ejs": "^1.0.0",
+    "stack": "^0.1.0",
+    "tiny-route": "^2.1.1"
+  },
+  "devDependencies": {
+    "level": "^0.18.0"
+  }
+}
