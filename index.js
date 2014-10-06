@@ -48,8 +48,14 @@ function createDb(cb) {
 
 function initApp(cb) {
   app = stack(
-      route('/', require('./routes/root')(db))
-    , static({ root: __dirname +'/public', handleError: false })
+      static({
+          root: __dirname +'/public'
+        , showDir: false
+        , handleError: false 
+      })
+
+      // add custom routes here..
+    , route('/', require('./routes/home')(db))
   )
 
   cb()
