@@ -17,6 +17,7 @@
   },
   "scripts": {
       "build": "bin/build.sh"
+    , "clean": "bin/clean.sh"
     , "start": "npm run build && node index.js"
   },
   "dependencies": {
