@@ -1,11 +1,13 @@
 ## /assets
 
-<p><b class="NORM">assets</b>
-<br>				   |-- <b class="DIR">css</b>
-<br>				   |-- <b class="DIR">img</b>
-<br>				   `-- <b class="DIR">js</b>
-<br><br>
-</p>
+```shell
+  assets
+   │
+   ├── css    //stylesheets
+   ├── img    //images
+   └── js     //scripts
+
+```
 
 place your own static asset files into these sub-folders.
 

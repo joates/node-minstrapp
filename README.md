@@ -18,6 +18,53 @@ What you are getting here is _actually_ 3 blank slates, so that you can build ou
 
 I thought if i packaged it like this (with minimal concepts) then others can more easily learn this technique from the simplicity of the [code](https://github.com/joates/node-minstrapp).
 
+## tree
+
+```shell
+  minstrapp
+   │
+   ├── LICENSE
+   ├── README.md
+   ├── assets
+   │   ├── README.md
+   │   ├── css
+   │   │   ├── README.md
+   │   │   └── custom.css
+   │   ├── img
+   │   │   ├── 01.jpg
+   │   │   └── README.md
+   │   └── js
+   │       ├── README.md
+   │       └── custom.js
+   ├── bin
+   │   ├── build.sh
+   │   └── clean.sh
+   ├── db
+   │   └── demo
+   │       ├── 000005.ldb
+   │       ├── 000008.ldb
+   │       ├── 000009.log
+   │       ├── CURRENT
+   │       ├── LOCK
+   │       ├── LOG
+   │       ├── LOG.old
+   │       └── MANIFEST-000007
+   ├── index.js
+   ├── package.json
+   ├── public
+   │   ├── css
+   │   │   └── styles.css
+   │   ├── favicon.ico
+   │   ├── img
+   │   │   └── 01.jpg
+   │   └── js
+   │       └── main.js
+   ├── routes
+   │   └── home.js
+   └── views
+       └── layout.html
+```
+
 ## license
 
 MIT
