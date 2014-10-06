@@ -51,7 +51,7 @@ function initApp(cb) {
       static({
           root: __dirname +'/public'
         , showDir: false
-        , handleError: false 
+        , handleError: false
       })
 
       // add custom routes here..

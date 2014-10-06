@@ -1,5 +1,6 @@
 #!/bin/bash
 echo -n "building.. "
-(browserify assets/scripts/*.js | uglifyjs -mc > public/js/main.js)
-(cat assets/styles/*.css > public/css/styles.css)
+(browserify assets/js/*.js | uglifyjs -mc > public/js/main.js)
+(cat assets/css/*.css > public/css/styles.css)
+(cp -Rfx assets/img/* public/img/)
 echo "done"

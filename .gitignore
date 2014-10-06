@@ -18,14 +18,13 @@ db
 !db/.gitkeep
 
 public
-!public/.gitkeep
 !public/css/.gitkeep
 !public/img/.gitkeep
 !public/js/.gitkeep
 
 assets
-!assets/.gitkeep
-!assets/styles/.gitkeep
-!assets/images
-!assets/scripts/.gitkeep
+!assets/README.md
+!assets/css/README.md
+!assets/img/README.md
+!assets/js/README.md
 
