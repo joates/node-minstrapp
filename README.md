@@ -8,6 +8,14 @@ _minimal application bootstrapper_
 npm install && npm start
 ```
 
+## EJS modification
+
+**Important:**<br />I am using a modified version of the EJS module from [npm](https://www.npmjs.org/package/ejs)
+
+_patch to enable EJS dynamic includes_
+* comment on [stackoverflow](http://stackoverflow.com/a/24492791)
+* github [pull-request](https://github.com/visionmedia/ejs/pull/156) (_not merged_)
+
 <h2>MVC pattern <small>(model-view-controller)</small></h2>
 
 * models go into ```/db```<br />it's LevelDB, take a look at the [documentation](https://github.com/rvagg/node-levelup#basic-usage), using it as an object store for simplicity, it stores data structures which will be passed into templates by your controllers.

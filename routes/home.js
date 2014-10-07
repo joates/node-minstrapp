@@ -20,9 +20,10 @@ module.exports = function(db) {
       if (err) return error(err)
 
       // db read OK..
-      obj.filename = 'layout'
       var filePath = './views/layout.html'
       var template = fs.readFileSync(filePath, 'utf8')
+      obj.filename = 'layout'
+      obj.mainContent = 'views/pages/home'
       return res.end(ejs.render(template, obj))
     })
   }
