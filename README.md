@@ -12,7 +12,7 @@ npm install
 _these next 2 commands are necessary to patch the EJS module_
 ```shell
 rm node_modules/ejs/{ejs.js,lib/ejs.js}
-git merge ejs-enable-dynamic-includes
+git cherry-pick 388e99b56c35
 
 npm start
 ```
