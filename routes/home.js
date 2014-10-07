@@ -3,12 +3,6 @@ var fs = require('fs')
 
 module.exports = function(db) {
   return function (req, res, next) {
-
-    if (req.url && req.url !== 'index.html') {
-      //console.log(req.url)
-      return next()
-    }
-
     req.resume()
 
     function error(e) {
@@ -20,8 +14,7 @@ module.exports = function(db) {
       if (err) return error(err)
 
       // db read OK..
-      var filePath = './views/layout.html'
-      var template = fs.readFileSync(filePath, 'utf8')
+      var template = fs.readFileSync('./views/layout.html', 'utf8')
       obj.filename = 'layout'
       obj.mainContent = 'views/pages/home'
       return res.end(ejs.render(template, obj))
